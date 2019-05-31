@@ -28,7 +28,7 @@ class GitHubRepoViewModel(private val app: Application) : AndroidViewModel(app) 
 
     private suspend fun nuke()= repository.nuke()
 
-    fun retrieveRepos(user: String) = viewModelScope.launch(){
+   fun retrieveRepos(user: String) = viewModelScope.launch(){
         this@GitHubRepoViewModel.nuke()//TODO OBTENEMOS NUESTRA TABLA LIMPIA
 
         val response = repository.retrieveReposAsync(user).await()
